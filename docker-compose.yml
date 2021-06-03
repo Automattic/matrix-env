@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:v1.35.1
+    container_name: synapse
+    volumes:
+      - ./data:/data
+    environment:
+      - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
