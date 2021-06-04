@@ -6,5 +6,7 @@ services:
     container_name: matrix-env-synapse
     volumes:
       - ./data:/data
+    ports:
+      - 8008:8008
     environment:
       - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
