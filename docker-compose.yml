@@ -10,3 +10,13 @@ services:
       - 8008:8008
     environment:
       - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
+
+  element:
+    image: vectorim/element-web:v1.7.29
+    container_name: matrix-env-element
+    volumes:
+      - ./element-config.json:/app/config.json
+    ports:
+      - 8009:80
+    depends_on:
+      - synapse
