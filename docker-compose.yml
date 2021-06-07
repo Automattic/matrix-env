@@ -10,6 +10,8 @@ services:
       - 8008:8008
     environment:
       - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
+    depends_on:
+      - postgres
 
   element:
     image: vectorim/element-web:v1.7.29
@@ -20,3 +22,18 @@ services:
       - 8009:80
     depends_on:
       - synapse
+
+  postgres:
+    image: library/postgres:13.3-alpine
+    container_name: matrix-env-postgres
+    environment:
+      POSTGRES_USER: synapse
+      POSTGRES_PASSWORD: synapse
+      POSTGRES_DB: synapse
+    ports:
+      - 5432:5432
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
