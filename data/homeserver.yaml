@@ -21,9 +21,15 @@ listeners:
         compress: false
 
 database:
-  name: sqlite3
+  name: psycopg2
   args:
-    database: /data/homeserver.db
+    user: synapse
+    password: synapse
+    database: synapse
+    host: matrix-env-postgres
+    port: 5432
+    cp_min: 5
+    cp_max: 10
 
 report_stats: false
 
