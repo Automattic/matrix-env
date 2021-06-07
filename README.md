@@ -22,7 +22,7 @@ docker compose up
 - You can access Element (the client) at http://localhost:8009.
 
 ## Database access
-The database can be accessed from the host machine, using the following credentials:
+Access the database from the host machine using the following credentials:
 
 - Host: `localhost`
 - Port: `5432`
