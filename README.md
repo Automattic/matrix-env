@@ -2,12 +2,6 @@
 Docker-based development environment for Matrix.
 
 ## Instructions
-Add `matrix.test` to your `/etc/hosts`:
-
-```
-127.0.0.1 matrix.test
-```
-
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`:
 
 ```shell
