@@ -20,6 +20,18 @@ docker compose up
 - The server is available at http://localhost:8008. You should see a page that displays "Synapse is running".
 - You can access Element (the client) at http://localhost:8009.
 
+# Creating users
+There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user.
+
+To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
+
+```shell
+# Create a privileged user with username 'admin' and password 'admin'.
+# Add --help to see documentation.
+
+bin/register_new_matrix_user -u admin -p admin --admin
+```
+
 # Database access
 Access the database from the host machine using the following credentials:
 

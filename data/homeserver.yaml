@@ -35,3 +35,5 @@ report_stats: false
 
 trusted_key_servers:
   - server_name: "matrix.org"
+
+registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
