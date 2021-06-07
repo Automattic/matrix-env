@@ -14,7 +14,8 @@ Then start everything with:
 docker compose up
 ```
 
-Open http://matrix.test:8008 in your browser. You should see a page that displays "Synapse is running".
+- The server is available at http://localhost:8008. You should see a page that displays "Synapse is running".
+- You can access Element (the client) at http://localhost:8009.
 
 ## References
 
