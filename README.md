@@ -2,7 +2,7 @@
 Docker-based development environment for Matrix.
 
 ## Instructions
-Create the `.env.local` file, which you can use to override environment variables defined in `.env`:
+Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
 
 ```shell
 touch .env.local
@@ -16,6 +16,15 @@ docker compose up
 
 - The server is available at http://localhost:8008. You should see a page that displays "Synapse is running".
 - You can access Element (the client) at http://localhost:8009.
+
+## Database access
+The database can be accessed from the host machine, using the following credentials:
+
+- Host: `localhost`
+- Port: `5432`
+- User: `synapse`
+- Password: `synapse`
+- Database: `synapse`
 
 ## References
 
