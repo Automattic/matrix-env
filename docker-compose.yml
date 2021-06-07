@@ -8,8 +8,9 @@ services:
       - ./data:/data
     ports:
       - 8008:8008
-    environment:
-      - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
+    env_file:
+      - .env
+      - .env.local
     depends_on:
       - postgres
 
@@ -20,20 +21,22 @@ services:
       - ./element-config.json:/app/config.json
     ports:
       - 8009:80
+    env_file:
+      - .env
+      - .env.local
     depends_on:
       - synapse
 
   postgres:
     image: library/postgres:13.3-alpine
     container_name: matrix-env-postgres
-    environment:
-      POSTGRES_USER: synapse
-      POSTGRES_PASSWORD: synapse
-      POSTGRES_DB: synapse
-    ports:
-      - 5432:5432
     volumes:
       - database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+      - .env.local
 
 volumes:
   database:
