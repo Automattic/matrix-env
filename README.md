@@ -1,5 +1,5 @@
 # matrix-env
-Docker-based development environment for Matrix.
+Docker-based development environment for [Matrix](https://matrix.org).
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
