@@ -1,5 +1,9 @@
 # matrix-env
-Docker-based development environment for [Matrix](https://matrix.org).
+Docker-based development environment for [Matrix](https://matrix.org), containing the following:
+
+- [Synapse](https://github.com/matrix-org/synapse): the reference homeserver implementation
+- [Element](https://github.com/vector-im/element-web): a web-based client
+- Postgres: the database (used by Synapse)
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
