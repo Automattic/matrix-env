@@ -23,9 +23,7 @@ docker compose up
 - You can access Element (the client) at http://localhost:8009.
 
 ## Creating users
-There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user.
-
-To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
+There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
 
 ```shell
 # Create a privileged user with username 'admin' and password 'admin'.
