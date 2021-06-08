@@ -5,7 +5,7 @@ services:
     image: matrixdotorg/synapse:v1.35.1
     container_name: matrix-env-synapse
     volumes:
-      - ./data:/data
+      - ./synapse:/synapse
     ports:
       - 8008:8008
     env_file:

@@ -8,11 +8,11 @@ server_name: "matrix.test"
 public_baseurl: "http://localhost:8008"
 
 report_stats: false
+log_config: "/synapse/config/log.config"
+signing_key_path: "/synapse/config/signing.key"
 
-pid_file: /data/homeserver.pid
-log_config: "/data/matrix.test.log.config"
-media_store_path: "/data/media_store"
-signing_key_path: "/data/matrix.test.signing.key"
+pid_file: /synapse/data/homeserver.pid
+media_store_path: "/synapse/data/media_store"
 
 default_identity_server: http://localhost:8090
 
