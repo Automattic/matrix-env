@@ -5,6 +5,8 @@
 #
 
 server_name: "matrix.test"
+public_baseurl: "http://localhost:8008"
+
 pid_file: /data/homeserver.pid
 log_config: "/data/matrix.test.log.config"
 media_store_path: "/data/media_store"
@@ -35,5 +37,7 @@ report_stats: false
 
 trusted_key_servers:
   - server_name: "matrix.org"
+
+default_identity_server: http://localhost:8090
 
 registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"

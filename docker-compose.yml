@@ -38,5 +38,14 @@ services:
       - .env
       - .env.local
 
+  sydent:
+    image: matrixdotorg/sydent-build
+    container_name: matrix-env-sydent
+    ports:
+    - 8090:8090
+    env_file:
+      - .env
+      - .env.local
+
 volumes:
   database:
