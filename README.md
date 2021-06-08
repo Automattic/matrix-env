@@ -1,6 +1,6 @@
 # matrix-env
 
-Docker-based development environment for [Matrix](https://matrix.org), containing the following:
+Docker-based development environment for [Matrix](https://matrix.org). Provides a local sandbox with the following pre-configured services:
 
 - [Synapse](https://github.com/matrix-org/synapse): the reference Homeserver implementation
 - [Sydent](https://github.com/matrix-org/sydent): the reference Identity Server implementation
