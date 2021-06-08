@@ -7,10 +7,19 @@
 server_name: "matrix.test"
 public_baseurl: "http://localhost:8008"
 
+report_stats: false
+
 pid_file: /data/homeserver.pid
 log_config: "/data/matrix.test.log.config"
 media_store_path: "/data/media_store"
 signing_key_path: "/data/matrix.test.signing.key"
+
+default_identity_server: http://localhost:8090
+
+trusted_key_servers:
+  - server_name: "matrix.org"
+
+registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
 
 listeners:
   - port: 8008
@@ -32,12 +41,3 @@ database:
     port: 5432
     cp_min: 5
     cp_max: 10
-
-report_stats: false
-
-trusted_key_servers:
-  - server_name: "matrix.org"
-
-default_identity_server: http://localhost:8090
-
-registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
