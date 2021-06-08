@@ -5,7 +5,7 @@
       "server_name": "matrix.test"
     },
     "m.identity_server": {
-      "base_url": "https://vector.im"
+      "base_url": "http://localhost:8090"
     }
   },
   "disable_custom_urls": false,
