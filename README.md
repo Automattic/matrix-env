@@ -5,7 +5,6 @@ Docker-based development environment for [Matrix](https://matrix.org), containin
 - [Synapse](https://github.com/matrix-org/synapse): the reference Homeserver implementation
 - [Sydent](https://github.com/matrix-org/sydent): the reference Identity Server implementation
 - [Element](https://github.com/vector-im/element-web): a web-based client
-- Postgres: the database (used by Synapse)
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -34,13 +33,17 @@ bin/register_new_matrix_user -u admin -p admin --admin
 ```
 
 ## Database access
-Access the database from the host machine using the following credentials:
+### Synapse
+Synapse uses a PostgreSQL database, which is accessible from the host machine using the following credentials:
 
 - Host: `localhost`
 - Port: `5432`
 - User: `synapse`
 - Password: `synapse`
 - Database: `synapse`
+
+### Sydent
+Sydent uses an SQLite database, stored under `sydent/data/sydent.db`. To access that database, simply open that file with an SQLite client. 
 
 ## References
 
