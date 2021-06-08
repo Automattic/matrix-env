@@ -18,7 +18,7 @@ services:
     image: vectorim/element-web:v1.7.29
     container_name: matrix-env-element
     volumes:
-      - ./element-config.json:/app/config.json
+      - ./element/config.json:/app/config.json
     ports:
       - 8009:80
     env_file:
