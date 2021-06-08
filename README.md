@@ -2,7 +2,8 @@
 
 Docker-based development environment for [Matrix](https://matrix.org), containing the following:
 
-- [Synapse](https://github.com/matrix-org/synapse): the reference homeserver implementation
+- [Synapse](https://github.com/matrix-org/synapse): the reference Homeserver implementation
+- [Sydent](https://github.com/matrix-org/sydent): the reference Identity Server implementation
 - [Element](https://github.com/vector-im/element-web): a web-based client
 - Postgres: the database (used by Synapse)
 
