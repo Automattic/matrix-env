@@ -45,6 +45,16 @@ Synapse uses a PostgreSQL database, which is accessible from the host machine us
 ### Sydent
 Sydent uses an SQLite database, stored under `sydent/data/sydent.db`. To access that database, simply open that file with an SQLite client. 
 
+## Starting from scratch
+Use the following commands to remove all containers and all data:
+
+```shell
+docker compose down
+docker volume rm matrix-env_database
+```
+
+Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8009. 
+
 ## References
 
 - https://github.com/matrix-org/synapse/tree/master/docker
