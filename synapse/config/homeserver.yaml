@@ -37,7 +37,7 @@ database:
     user: synapse
     password: synapse
     database: synapse
-    host: matrix-env-postgres
+    host: matrix-env-synapse-database
     port: 5432
     cp_min: 5
     cp_max: 10
