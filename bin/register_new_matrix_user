@@ -15,4 +15,4 @@ if ! docker ps -a --format '{{.Names}}' | grep -Eq "^${SYNAPSE_CONTAINER}\$"; th
 fi
 
 docker exec -it "$SYNAPSE_CONTAINER" \
-  register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008 "$@"
+  register_new_matrix_user -c /synapse/config/homeserver.yaml http://localhost:8008 "$@"
