@@ -1,8 +1,7 @@
 {
   "default_server_config": {
     "m.homeserver": {
-      "base_url": "http://localhost:8008",
-      "server_name": "matrix.test"
+      "base_url": "http://localhost:8008"
     },
     "m.identity_server": {
       "base_url": "http://localhost:8090"
