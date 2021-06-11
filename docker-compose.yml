@@ -25,13 +25,22 @@ services:
       - .env
       - .env.local
 
+  synapse-admin:
+    image: awesometechnologies/synapse-admin:0.8.1
+    container_name: matrix-env-synapse-admin
+    ports:
+      - 8009:80
+    env_file:
+      - .env
+      - .env.local
+
   element:
     image: vectorim/element-web:v1.7.29
     container_name: matrix-env-element
     volumes:
       - ./element/config.json:/app/config.json
     ports:
-      - 8009:80
+      - 8010:80
     env_file:
       - .env
       - .env.local

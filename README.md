@@ -2,8 +2,9 @@
 
 Docker-based development environment for [Matrix](https://matrix.org). Provides a local sandbox with the following pre-configured services:
 
-- [Synapse](https://github.com/matrix-org/synapse): the reference Homeserver implementation
-- [Element](https://github.com/vector-im/element-web): a web-based client
+- [synapse](https://github.com/matrix-org/synapse): the reference homeserver implementation
+- [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin): homeserver admin UI
+- [element](https://github.com/vector-im/element-web): a web-based Matrix client
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -18,8 +19,11 @@ Then start everything with:
 docker compose up
 ```
 
-- The server is available at http://localhost:8008. You should see a page that displays "Synapse is running".
-- You can access Element (the client) at http://localhost:8009.
+You should now be able to access the following URLs:
+
+- http://localhost:8008: the homeserver (should just display "Synapse is running")
+- http://localhost:8009: the homeserver admin UI
+- http://localhost:8010: the client
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
@@ -48,7 +52,7 @@ docker compose down
 docker volume rm matrix-env_synapse-database
 ```
 
-Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8009. 
+Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.
 
 ## References
 
