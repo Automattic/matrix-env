@@ -4,9 +4,8 @@
 # https://github.com/Automattic/matrix-env/blob/522227eeb7b98647a962ba027046016cf1f8b726/data/homeserver.yaml
 #
 
-server_name: "matrix-env-synapse:8008"
+server_name: "matrix.test"
 public_baseurl: "http://localhost:8008"
-default_identity_server: "http://localhost:8090"
 
 trusted_key_servers:
   - server_name: "matrix.org"

@@ -25,17 +25,6 @@ services:
       - .env
       - .env.local
 
-  sydent:
-    image: matrixdotorg/sydent-build
-    container_name: matrix-env-sydent
-    volumes:
-    - ./sydent:/data
-    ports:
-      - 8090:8090
-    env_file:
-      - .env
-      - .env.local
-
   element:
     image: vectorim/element-web:v1.7.29
     container_name: matrix-env-element

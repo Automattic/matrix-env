@@ -3,7 +3,6 @@
 Docker-based development environment for [Matrix](https://matrix.org). Provides a local sandbox with the following pre-configured services:
 
 - [Synapse](https://github.com/matrix-org/synapse): the reference Homeserver implementation
-- [Sydent](https://github.com/matrix-org/sydent): the reference Identity Server implementation
 - [Element](https://github.com/vector-im/element-web): a web-based client
 
 ## Instructions
@@ -33,7 +32,6 @@ bin/register_new_matrix_user -u admin -p admin --admin
 ```
 
 ## Database access
-### Synapse
 Synapse uses a PostgreSQL database, which is accessible from the host machine using the following credentials:
 
 - Host: `localhost`
@@ -41,9 +39,6 @@ Synapse uses a PostgreSQL database, which is accessible from the host machine us
 - User: `synapse`
 - Password: `synapse`
 - Database: `synapse`
-
-### Sydent
-Sydent uses an SQLite database, stored under `sydent/data/sydent.db`. To access that database, simply open that file with an SQLite client. 
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
