@@ -4,20 +4,19 @@
 # https://github.com/Automattic/matrix-env/blob/522227eeb7b98647a962ba027046016cf1f8b726/data/homeserver.yaml
 #
 
-server_name: "matrix.test"
+server_name: "matrix-env-synapse:8008"
 public_baseurl: "http://localhost:8008"
+default_identity_server: "http://localhost:8090"
+
+trusted_key_servers:
+  - server_name: "matrix.org"
 
 report_stats: false
 log_config: "/synapse/config/log.config"
 signing_key_path: "/synapse/config/signing.key"
 
-pid_file: /synapse/data/homeserver.pid
+pid_file: "/synapse/data/homeserver.pid"
 media_store_path: "/synapse/data/media_store"
-
-default_identity_server: http://localhost:8090
-
-trusted_key_servers:
-  - server_name: "matrix.org"
 
 registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
 
