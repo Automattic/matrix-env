@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # homeserver
   synapse:
     image: matrixdotorg/synapse:v1.35.1
     container_name: matrix-env-synapse
@@ -14,6 +15,7 @@ services:
     depends_on:
       - synapse-database
 
+  # postgres instance for use by the homeserver
   synapse-database:
     image: library/postgres:13.3-alpine
     container_name: matrix-env-synapse-database
@@ -25,6 +27,7 @@ services:
       - .env
       - .env.local
 
+  # homeserver admin UI
   synapse-admin:
     image: awesometechnologies/synapse-admin:0.8.1
     container_name: matrix-env-synapse-admin
@@ -34,6 +37,7 @@ services:
       - .env
       - .env.local
 
+  # client
   element:
     image: vectorim/element-web:v1.7.29
     container_name: matrix-env-element
