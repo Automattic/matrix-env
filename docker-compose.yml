@@ -51,5 +51,16 @@ services:
     depends_on:
       - synapse
 
+  # integrations manager
+  dimension:
+    image: turt2live/matrix-dimension
+    container_name: matrix-env-dimension
+    volumes:
+      - ./dimension:/data
+    ports:
+      - 8011:8184
+    depends_on:
+      - synapse
+
 volumes:
   synapse-database:
