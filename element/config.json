@@ -12,14 +12,10 @@
   "disable_login_language_selector": false,
   "disable_3pid_login": false,
   "brand": "Element",
-  "integrations_ui_url": "https://scalar.vector.im/",
-  "integrations_rest_url": "https://scalar.vector.im/api",
+  "integrations_ui_url": "http://localhost:8011/element",
+  "integrations_rest_url": "http://localhost:8011/api/v1/scalar",
   "integrations_widgets_urls": [
-    "https://scalar.vector.im/_matrix/integrations/v1",
-    "https://scalar.vector.im/api",
-    "https://scalar-staging.vector.im/_matrix/integrations/v1",
-    "https://scalar-staging.vector.im/api",
-    "https://scalar-staging.riot.im/scalar/api"
+    "http://localhost:8011/widgets"
   ],
   "bug_report_endpoint_url": "https://element.io/bugreports/submit",
   "defaultCountryCode": "GB",
