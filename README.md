@@ -69,6 +69,7 @@ docker compose up
 You should now be able to access Dimension at http://localhost:8011.
 
 ## Database access
+### Synapse
 Synapse uses a PostgreSQL database, which is accessible from the host machine using the following credentials:
 
 - Host: `localhost`
@@ -76,6 +77,9 @@ Synapse uses a PostgreSQL database, which is accessible from the host machine us
 - User: `synapse`
 - Password: `synapse`
 - Database: `synapse`
+
+### Dimension
+Dimension uses an SQLite database, stored under `dimension/dimension.db`. To access that database, simply open that file with an SQLite client.
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
