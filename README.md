@@ -87,6 +87,7 @@ Use the following commands to remove all containers and all data:
 ```shell
 docker compose down
 docker volume rm matrix-env_synapse-database
+rm dimension/dimension.db
 ```
 
 Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.
