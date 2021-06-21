@@ -6,6 +6,7 @@ Docker-based development environment for [Matrix](https://matrix.org). Provides 
 - [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin): homeserver admin UI
 - [element](https://github.com/vector-im/element-web): a web-based Matrix client
 - [dimension](https://dimension.t2bot.io/): integration manager
+- [go-neb](https://github.com/matrix-org/go-neb): bot manager
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -26,6 +27,7 @@ You should now be able to access the following URLs:
 - http://localhost:8009: the homeserver admin UI
 - http://localhost:8010: the client
 - http://localhost:8011: the integration manager (requires [further configuration](#configuring-dimension))
+- http://localhost:8012: the bot manager (requires [further configuration](#configuring-go-neb))
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
@@ -68,6 +70,43 @@ docker compose up
 
 You should now be able to access Dimension at http://localhost:8011.
 
+## Configuring go-neb
+You should create a user dedicated to `go-neb`. You can do so with the following command:
+
+```shell
+bin/register_new_matrix_user -u go-neb -p go-neb --no-admin
+```
+
+Once the user is created, you should look into the `access_tokens` table in the [synapse database](#database-access), and retrieve both the `access_token` and `device_id` (you'll use these in the request below).
+
+Using go-neb's HTTP API, we'll configure an `echo` bot:
+
+```shell
+# configure a client
+
+curl -X POST localhost:8012/admin/configureClient --data-binary '{
+    "UserID": "@go-neb:matrix.test",
+    "HomeserverURL": "http://matrix-env-synapse:8008",
+    "AccessToken": "<access_token>",
+    "DeviceID": "<DEVICEID>",
+    "Sync": true,
+    "AutoJoinRooms": true,
+    "DisplayName": "My Bot"
+}'
+```
+
+```shell
+# configure what service the client runs
+
+curl -X POST localhost:8012/admin/configureService --data-binary '{
+    "Type": "echo",
+    "Id": "myserviceid",
+    "UserID": "@go-neb:matrix.test",
+    "Config": {}
+}'
+```
+Invite the bot user into a Matrix room and type `!echo hello world`. It should reply with `hello world`.
+
 ## Database access
 ### Synapse
 Synapse uses a PostgreSQL database, which is accessible from the host machine using the following credentials:
@@ -81,13 +120,16 @@ Synapse uses a PostgreSQL database, which is accessible from the host machine us
 ### Dimension
 Dimension uses an SQLite database, stored under `dimension/dimension.db`. To access that database, simply open that file with an SQLite client.
 
+### go-neb
+go-neb uses an SQLite database, stored under `go-neb/go-neb.db`. To access that database, simply open that file with an SQLite client.
+
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
 
 ```shell
 docker compose down
 docker volume rm matrix-env_synapse-database
-rm dimension/dimension.db
+rm dimension/dimension.db go-neb/go-neb.db
 ```
 
 Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.

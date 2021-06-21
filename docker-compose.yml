@@ -51,7 +51,7 @@ services:
     depends_on:
       - synapse
 
-  # integrations manager
+  # integration manager
   dimension:
     image: turt2live/matrix-dimension
     container_name: matrix-env-dimension
@@ -59,6 +59,24 @@ services:
       - ./dimension:/data
     ports:
       - 8011:8184
+    env_file:
+      - .env
+      - .env.local
+    depends_on:
+      - synapse
+      - go-neb
+
+  # bot manager
+  go-neb:
+    image: matrixdotorg/go-neb
+    container_name: matrix-env-go-neb
+    volumes:
+      - ./go-neb:/data
+    ports:
+      - 8012:4050
+    env_file:
+      - .env
+      - .env.local
     depends_on:
       - synapse
 
