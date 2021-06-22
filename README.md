@@ -6,7 +6,7 @@ Docker-based development environment for [Matrix](https://matrix.org). Provides 
 - [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin): homeserver admin UI
 - [element](https://github.com/vector-im/element-web): a web-based Matrix client
 - [dimension](https://dimension.t2bot.io/): integration manager
-- [go-neb](https://github.com/matrix-org/go-neb): bot manager
+- [go-neb](https://github.com/matrix-org/go-neb): an extensible bot
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -27,7 +27,7 @@ You should now be able to access the following URLs:
 - http://localhost:8009: the homeserver admin UI
 - http://localhost:8010: the client
 - http://localhost:8011: the integration manager (requires [further configuration](#configuring-dimension))
-- http://localhost:8012: the bot manager (requires [further configuration](#configuring-go-neb))
+- http://localhost:8012: the bot manager
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
@@ -40,9 +40,10 @@ bin/register_new_matrix_user -u admin -p admin --admin
 ```
 
 ## Configuring Dimension
-Out of the box, Dimension (the integration manager) will not properly start since it requires further configuration.
+Out of the box, Dimension (the integration manager) will not properly start since it requires further configuration. You should go through all the following subsections in order for Dimension to be fully functional.
 
-First, create a `dimension` user with the following command:
+### Create a user for Dimension
+Start by creating a `dimension` user, with the following command:
 
 ```shell
 bin/register_new_matrix_user -u dimension -p dimension --no-admin
@@ -64,48 +65,34 @@ Alternatively, if you don't want the `dimension/config.yaml` file to be modified
 Finally, you should restart the Dimension service, so the new configuration is used:
 
 ```shell
-docker compose stop
-docker compose up
+docker compose restart
 ```
 
-You should now be able to access Dimension at http://localhost:8011.
+### Configure go-neb usage with Dimension
+Dimension provides an [Application Service](https://matrix.org/docs/guides/application-services) that simplifies usage of *go-neb*. The following steps are required for this application service to work correctly.
 
-## Configuring go-neb
-You should create a user dedicated to `go-neb`. You can do so with the following command:
+1. Open [Element](http://localhost:8010) and login using the `admin` user (password is `admin`)
+1. Create a room, with no end-to-end encryption
+1. Open the room info sidebar (the `i` on top-right)
+1. Click *Add widgets, bridges & bots*
+1. Click the gear icon on top-right
+1. Click on *go-neb* in the sidebar
+1. Click *Add self-hosted go-neb*
+1. Leave *User Prefix* as is
+1. As *API URL*, enter `http://matrix-env-go-neb:4050`
+1. Click *Save*
+
+A modal will appear with the `appservice` configuration. You should copy the configuration and paste it into `synapse/config/appservice-dimension.yaml`.
+
+Alternatively, if you don't want to modify the `synapse/config/appservice-dimension.yaml` you can take the values in that file for `id`, `as_token` and `hs_token`, and enter them into the `dimension_appservice` table, in the [Dimension database](#database-access).
+
+Finally, you should restart Synapse so it takes the new appservice configuration in account:
 
 ```shell
-bin/register_new_matrix_user -u go-neb -p go-neb --no-admin
+docker compose restart
 ```
 
-Once the user is created, you should look into the `access_tokens` table in the [synapse database](#database-access), and retrieve both the `access_token` and `device_id` (you'll use these in the request below).
-
-Using go-neb's HTTP API, we'll configure an `echo` bot:
-
-```shell
-# configure a client
-
-curl -X POST localhost:8012/admin/configureClient --data-binary '{
-    "UserID": "@go-neb:matrix.test",
-    "HomeserverURL": "http://matrix-env-synapse:8008",
-    "AccessToken": "<access_token>",
-    "DeviceID": "<DEVICEID>",
-    "Sync": true,
-    "AutoJoinRooms": true,
-    "DisplayName": "My Bot"
-}'
-```
-
-```shell
-# configure what service the client runs
-
-curl -X POST localhost:8012/admin/configureService --data-binary '{
-    "Type": "echo",
-    "Id": "myserviceid",
-    "UserID": "@go-neb:matrix.test",
-    "Config": {}
-}'
-```
-Invite the bot user into a Matrix room and type `!echo hello world`. It should reply with `hello world`.
+Once containers are running again, clicking the *Test configuration* button in the appservice configuration modal, should display a success message.
 
 ## Database access
 ### Synapse

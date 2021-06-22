@@ -1,0 +1,15 @@
+# Extra configuration is required for this appservice to function correctly.
+# You should follow the instructions in the *Configuring Dimension* section of the README.md.
+
+id: dimension-lZaS7rB9CGvIDRfClixSq9Q5E
+as_token: YfsHwZYHPMsrbxi6s7L6EAJRNfoYEmlfmgqcKCFbXUFrNYrrlAaHE6Rhb02esis2d5DDgbstrZ0xFjEZqLerCEASpmoxilAuuvcx
+hs_token: DnTkAGudKKZMFR0R3l5SXwnOpbySRDBXyEWFWri08wMSSXa0akKSXgEH9STo9Ve9wNkDHA3JZcsgmZJz0FBvbq89JK3N8n2H9VWz
+
+url: http://localhost:8011/_matrix/appservice/r0
+sender_localpart: _neb
+namespaces:
+  users:
+    - exclusive: true
+      regex: '@_neb.*'
+  aliases: []
+  rooms: []

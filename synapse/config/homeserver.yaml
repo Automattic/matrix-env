@@ -17,6 +17,9 @@ signing_key_path: "/synapse/config/signing.key"
 pid_file: "/synapse/data/homeserver.pid"
 media_store_path: "/synapse/data/media_store"
 
+app_service_config_files:
+  - "/synapse/config/appservice-dimension.yaml"
+
 registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
 
 listeners:
