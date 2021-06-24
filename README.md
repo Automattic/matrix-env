@@ -23,11 +23,11 @@ docker compose up
 
 You should now be able to access the following URLs:
 
-- http://localhost:8008: the homeserver (should just display "Synapse is running")
-- http://localhost:8009: the homeserver admin UI
-- http://localhost:8010: the client
-- http://localhost:8011: the integration manager (requires [further configuration](#configuring-dimension))
-- http://localhost:8012: the bot manager
+- http://localhost:8008: Synapse (homeserver, should just display "Synapse is running")
+- http://localhost:8009: Synapse admin UI
+- http://localhost:8010: Element (client)
+- http://localhost:8011: Dimension (integration manager, requires [further configuration](#configuring-dimension))
+- http://localhost:8012: go-neb (bots written in go)
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
