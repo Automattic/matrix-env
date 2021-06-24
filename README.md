@@ -6,7 +6,8 @@ Docker-based development environment for [Matrix](https://matrix.org). Provides 
 - [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin): homeserver admin UI
 - [element](https://github.com/vector-im/element-web): a web-based Matrix client
 - [dimension](https://dimension.t2bot.io/): integration manager
-- [go-neb](https://github.com/matrix-org/go-neb): an extensible bot
+- [go-neb](https://github.com/matrix-org/go-neb): an extensible bot, written in Go
+- [maubot](https://github.com/maubot/maubot): an extensible bot, written in Python
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -27,7 +28,8 @@ You should now be able to access the following URLs:
 - http://localhost:8009: Synapse admin UI
 - http://localhost:8010: Element (client)
 - http://localhost:8011: Dimension (integration manager, requires [further configuration](#configuring-dimension))
-- http://localhost:8012: go-neb (bots written in go)
+- http://localhost:8012: go-neb (extensible bot, written in Go)
+- http://localhost:8013: maubot (extensible bot, written in Python) (user: admin, password: admin)
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
@@ -109,6 +111,9 @@ Dimension uses an SQLite database, stored under `dimension/dimension.db`. To acc
 
 ### go-neb
 go-neb uses an SQLite database, stored under `go-neb/go-neb.db`. To access that database, simply open that file with an SQLite client.
+
+### maubot
+maubot uses an SQLite database, stored under `maubot/maubot.db`. To access that database, simply open that file with an SQLite client.
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
