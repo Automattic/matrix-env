@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # homeserver
   synapse:
-    image: matrixdotorg/synapse:v1.35.1
+    image: matrixdotorg/synapse:v1.40.0
     container_name: matrix-env-synapse
     volumes:
       - ./synapse:/synapse
@@ -39,7 +39,7 @@ services:
 
   # client
   element:
-    image: vectorim/element-web:v1.7.29
+    image: vectorim/element-web:v1.7.34
     container_name: matrix-env-element
     volumes:
       - ./element/config.json:/app/config.json
