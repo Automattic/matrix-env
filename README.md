@@ -97,31 +97,19 @@ docker compose restart
 Once containers are running again, clicking the *Test configuration* button in the appservice configuration modal, should display a success message.
 
 ## Database access
-### Synapse
-Synapse uses a PostgreSQL database, which is accessible from the host machine using the following credentials:
+Each service uses its own SQLite database. To access each database, simply open the file with an SQLite client. The files are stored under:
 
-- Host: `localhost`
-- Port: `5432`
-- User: `synapse`
-- Password: `synapse`
-- Database: `synapse`
-
-### Dimension
-Dimension uses an SQLite database, stored under `dimension/dimension.db`. To access that database, simply open that file with an SQLite client.
-
-### go-neb
-go-neb uses an SQLite database, stored under `go-neb/go-neb.db`. To access that database, simply open that file with an SQLite client.
-
-### maubot
-maubot uses an SQLite database, stored under `maubot/maubot.db`. To access that database, simply open that file with an SQLite client.
+- synapse: `synapse/data/homeserver.db`
+- dimension: `dimension/dimension.db`
+- maubot: `maubot/maubot.db`
+- go-neb: `go-neb/go-neb.db`
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
 
 ```shell
 docker compose down
-docker volume rm matrix-env_synapse-database
-rm dimension/dimension.db go-neb/go-neb.db
+rm synapse/data/homeserver.db dimension/dimension.db maubot/maubot.db go-neb/go-neb.db
 ```
 
 Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.

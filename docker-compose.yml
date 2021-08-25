@@ -12,20 +12,6 @@ services:
     env_file:
       - .env
       - .env.local
-    depends_on:
-      - synapse-database
-
-  # postgres instance for use by the homeserver
-  synapse-database:
-    image: library/postgres:13.3-alpine
-    container_name: matrix-env-synapse-database
-    volumes:
-      - synapse-database:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    env_file:
-      - .env
-      - .env.local
 
   # homeserver admin UI
   synapse-admin:
@@ -90,6 +76,3 @@ services:
       - 8013:29316
     depends_on:
       - synapse
-
-volumes:
-  synapse-database:
