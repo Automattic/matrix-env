@@ -8,7 +8,7 @@ services:
     volumes:
       - ./synapse:/synapse
     ports:
-      - 8008:8008
+      - "8008:8008"
     env_file:
       - .env
       - .env.local
@@ -18,7 +18,7 @@ services:
     image: awesometechnologies/synapse-admin:0.8.1
     container_name: matrix-env-synapse-admin
     ports:
-      - 8009:80
+      - "8009:80"
     env_file:
       - .env
       - .env.local
@@ -30,7 +30,7 @@ services:
     volumes:
       - ./element/config.json:/app/config.json
     ports:
-      - 8010:80
+      - "8010:80"
     env_file:
       - .env
       - .env.local
@@ -44,7 +44,7 @@ services:
     volumes:
       - ./dimension:/data
     ports:
-      - 8011:8184
+      - "8011:8184"
     env_file:
       - .env
       - .env.local
@@ -59,7 +59,7 @@ services:
     volumes:
       - ./go-neb:/data
     ports:
-      - 8012:4050
+      - "8012:4050"
     env_file:
       - .env
       - .env.local
@@ -73,6 +73,6 @@ services:
     volumes:
       - ./maubot:/data
     ports:
-      - 8013:29316
+      - "8013:29316"
     depends_on:
       - synapse
