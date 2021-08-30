@@ -37,6 +37,11 @@ database:
   args:
     database: /synapse/data/homeserver.db
 
+opentracing:
+  enabled: true
+  force_tracing_for_users:
+    - "@admin:matrix.test"
+
 url_preview_enabled: true
 url_preview_ip_range_blacklist:
   - '127.0.0.0/8'
