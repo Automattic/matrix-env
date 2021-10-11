@@ -1,7 +1,7 @@
 #
 # This file contains the minimal configuration required for Synapse to run.
 # For a list of all available configuration options, along with documentation for each option, see:
-# https://github.com/Automattic/matrix-env/blob/522227eeb7b98647a962ba027046016cf1f8b726/data/homeserver.yaml
+# https://github.com/matrix-org/synapse/blob/develop/docs/sample_config.yaml
 #
 
 server_name: "matrix.test"
