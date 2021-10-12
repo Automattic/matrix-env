@@ -100,6 +100,19 @@ Each service uses its own SQLite database. To access each database, simply open 
 - maubot: `maubot/maubot.db`
 - go-neb: `go-neb/go-neb.db`
 
+## Credentials
+
+- Matrix users
+    - admin:
+        - username: `admin`
+        - password: `admin`
+    - dimension:
+        - username: `dimension`
+        - password: `dimension`
+- maubot
+    - username: `admin`
+    - password: `admin`
+
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
 
