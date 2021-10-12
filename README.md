@@ -16,7 +16,7 @@ It gives you the following pre-configured services:
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
 
 ```shell
-touch .env.local
+echo "# Environment variables defined in this file override the ones defined in .env" > .env.local
 ```
 
 Then start everything with:
