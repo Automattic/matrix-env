@@ -10,7 +10,7 @@ It gives you the following pre-configured services:
 | [element](https://github.com/vector-im/element-web) | Web-based Matrix client | [localhost:8010](http://localhost:8010) |
 | [dimension](https://dimension.t2bot.io/) | Integration manager | [localhost:8011](http://localhost:8011) |
 | [go-neb](https://github.com/matrix-org/go-neb) | Extensible bot, written in Go | [localhost:8012](http://localhost:8012) |
-| [maubot](https://github.com/maubot/maubot) | extensible bot, written in Python | [localhost:8013](http://localhost:8013) |
+| [maubot](https://github.com/maubot/maubot) | Extensible bot, written in Python | [localhost:8013](http://localhost:8013) |
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
