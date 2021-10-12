@@ -122,10 +122,3 @@ rm synapse/data/homeserver.db dimension/dimension.db maubot/maubot.db go-neb/go-
 ```
 
 Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.
-
-## References
-
-- https://github.com/matrix-org/synapse/tree/master/docker
-- https://github.com/matrix-org/synapse/tree/master/contrib/docker
-- https://github.com/matrix-org/synapse/blob/master/INSTALL.md
-- https://github.com/spantaleev/matrix-docker-ansible-deploy
