@@ -11,6 +11,7 @@ It gives you the following pre-configured services:
 | [dimension](https://dimension.t2bot.io/) | Integration manager | [localhost:8011](http://localhost:8011) |
 | [go-neb](https://github.com/matrix-org/go-neb) | Extensible bot, written in Go | [localhost:8012](http://localhost:8012) |
 | [maubot](https://github.com/maubot/maubot) | Extensible bot, written in Python | [localhost:8013](http://localhost:8013) |
+| [mailhog](https://github.com/mailhog/MailHog) | Mock SMTP server for catching sent emails | [localhost:8014](http://localhost:8014) |
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
@@ -39,6 +40,9 @@ bin/register_new_matrix_user -u admin -p admin --admin
 
 ## Configuring Dimension
 Out of the box, Dimension (the integration manager) will not properly start since it requires further configuration. If you intend to use Dimension,  please follow [these instructions](dimension.md).
+
+## Catching sent emails
+Emails sent by any of the provided services are _caught_ by Mailhog, and made available through a Web UI, available at http://localhost:8014.
 
 ## Database access
 Each service uses its own SQLite database. To access each database, simply open the file with an SQLite client. The files are stored under:
