@@ -1,6 +1,7 @@
 # matrix-env
+This project provides a self-contained [Matrix.org](https://matrix.org) sandbox, using [Docker Compose](https://docs.docker.com/compose). It allows you to quickly get a Matrix _node_ running on your local machine, for exploration or hacking on the Matrix ecosystem.
 
-Docker-based development environment for [Matrix](https://matrix.org). Provides a local sandbox with the following pre-configured services:
+It gives you the following pre-configured services:
 
 - [synapse](https://github.com/matrix-org/synapse): the reference homeserver implementation
 - [synapse-admin](https://github.com/Awesome-Technologies/synapse-admin): homeserver admin UI
