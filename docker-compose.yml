@@ -76,3 +76,10 @@ services:
       - "8013:29316"
     depends_on:
       - synapse
+
+  # catcher for sent emails
+  mailhog:
+    image: mailhog/mailhog
+    container_name: matrix-env-mailhog
+    ports:
+      - "8014:8025"
