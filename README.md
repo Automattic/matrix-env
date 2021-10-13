@@ -26,7 +26,7 @@ Then start everything with:
 docker compose up
 ```
 
-> You might notice Dimension exits with an error. This is expected, since Dimension requires [further configuration](#configuring-dimension) to properly boot. However, if you don't plan on using Dimension, you can safely ignore this error.
+> You might notice Dimension exits with an error. This is expected, since Dimension requires [further configuration](dimension.md) to properly boot. However, if you don't plan on using Dimension, you can safely ignore this error.
 
 ## Creating users
 There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
@@ -37,9 +37,6 @@ There are no pre-configured users, and registration through the client is disabl
 
 bin/register_new_matrix_user -u admin -p admin --admin
 ```
-
-## Configuring Dimension
-Out of the box, Dimension (the integration manager) will not properly start since it requires further configuration. If you intend to use Dimension,  please follow [these instructions](dimension.md).
 
 ## Catching sent emails
 Emails sent by any of the provided services are _caught_ by Mailhog, and made available through a Web UI, available at http://localhost:8014.
