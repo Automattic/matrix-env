@@ -29,7 +29,7 @@ docker compose up
 > You might notice Dimension exits with an error. This is expected, since Dimension requires [further configuration](dimension.md) to properly boot. However, if you don't plan on using Dimension, you can safely ignore this error.
 
 ## Creating users
-There are no pre-configured users, and registration through the client is disabled. Before you can login, you must create a user. To do so, you can use the [bin/register_new_matrix_user](bin/register_new_matrix_user) command:
+You can use [bin/register_new_matrix_user](bin/register_new_matrix_user) to create users from the command line:
 
 ```shell
 # Create a privileged user with username 'admin' and password 'admin'.
