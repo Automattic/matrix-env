@@ -83,3 +83,8 @@ services:
     container_name: matrix-env-mailhog
     ports:
       - "8014:8025"
+
+networks:
+  default:
+    name: matrix-env
+    external: true

@@ -20,6 +20,12 @@ Create the `.env.local` file, which you can use to override environment variable
 echo "# Environment variables defined in this file override the ones defined in .env" > .env.local
 ```
 
+Create the `network`:
+
+```shell
+docker network create matrix-env
+```
+
 Then start everything with:
 
 ```shell
