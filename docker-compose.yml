@@ -84,6 +84,29 @@ services:
     ports:
       - "8014:8025"
 
+  # postgres
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    volumes:
+      - ./postgres/storage/:/var/lib/postgresql/data
+      - ./postgres/run.sh:/docker-entrypoint-initdb.d/run.sh
+    environment:
+      POSTGRES_PASSWORD: neo
+      POSTGRES_USER: matrix
+    ports:
+      - "8015:5432"
+
+  # slack bridge
+  slack-bridge:
+    image: matrixdotorg/matrix-appservice-slack:latest
+    container_name: slack-bridge
+    volumes:
+      - ./slack-bridge/config/:/config/
+      - ./slack-bridge/run.sh:/docker-entrypoint-initdb.d/run.sh
+    ports:
+      - "8016:5858"
+
 networks:
   default:
     name: matrix-env
