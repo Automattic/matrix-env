@@ -87,7 +87,7 @@ services:
   # postgres
   postgres:
     image: postgres:14
-    container_name: postgres
+    container_name: matrix-env-postgres
     volumes:
       - ./postgres/storage/:/var/lib/postgresql/data
       - ./postgres/run.sh:/docker-entrypoint-initdb.d/run.sh
@@ -99,7 +99,7 @@ services:
   # slack bridge
   slack-bridge:
     image: matrixdotorg/matrix-appservice-slack:latest
-    container_name: slack-bridge
+    container_name: matrix-env-slack-bridge
     volumes:
       - ./slack-bridge/config/:/config/
       - ./slack-bridge/run.sh:/docker-entrypoint-initdb.d/run.sh
