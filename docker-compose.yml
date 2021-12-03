@@ -93,7 +93,6 @@ services:
       - ./postgres/run.sh:/docker-entrypoint-initdb.d/run.sh
     environment:
       POSTGRES_PASSWORD: neo
-      POSTGRES_USER: matrix
     ports:
       - "8015:5432"
 
@@ -106,6 +105,9 @@ services:
       - ./slack-bridge/run.sh:/docker-entrypoint-initdb.d/run.sh
     ports:
       - "8016:5858"
+    depends_on:
+      - synapse
+      - postgres
 
 networks:
   default:

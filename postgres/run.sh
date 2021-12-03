@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Run inside postgres
-# only once though, so only if database doesn't exist
+set -e
 
-# CREATE DATABASE slack_bridge;
-# CREATE USER slackbridge_user WITH PASSWORD 'slackbridgesecret';
-# GRANT ALL PRIVILEGES ON DATABASE slack_bridge to slackbridge_user;
-
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE USER slackbridge_user WITH PASSWORD 'slackbridgesecret';
+    CREATE DATABASE slack_bridge;
+    GRANT ALL PRIVILEGES ON DATABASE slack_bridge to slackbridge_user;
+EOSQL
