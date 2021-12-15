@@ -57,6 +57,9 @@ Each service uses its own SQLite database. To access each database, simply open 
 - maubot: `maubot/maubot.db`
 - go-neb: `go-neb/go-neb.db`
 
+### PostgreSQL database files
+PostgreSQL database is stored as files under `postgres/storage/`. Currently only `slack-bridge` uses PostgreSQL to store data.
+
 ## Credentials
 
 - Matrix users
@@ -69,6 +72,9 @@ Each service uses its own SQLite database. To access each database, simply open 
 - maubot
     - username: `admin`
     - password: `admin`
+- PostgreSQL
+    - username: postgres
+    - password: neo
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
@@ -76,6 +82,7 @@ Use the following commands to remove all containers and all data:
 ```shell
 docker compose down
 rm synapse/data/homeserver.db dimension/dimension.db maubot/maubot.db go-neb/go-neb.db
+rm -r postgres/storage
 ```
 
 Also note that Element stores data in the browser's local storage. To really start from scratch, you must also delete all browser data related to http://localhost:8010.
