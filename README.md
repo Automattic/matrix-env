@@ -12,6 +12,8 @@ It gives you the following pre-configured services:
 | [go-neb](https://github.com/matrix-org/go-neb) | Extensible bot, written in Go | [localhost:8012](http://localhost:8012) |
 | [maubot](https://github.com/maubot/maubot) | Extensible bot, written in Python | [localhost:8013](http://localhost:8013) |
 | [mailhog](https://github.com/mailhog/MailHog) | Mock SMTP server for catching sent emails | [localhost:8014](http://localhost:8014) |
+| [postgres](https://www.postgresql.org) | PostgreSQL database service | [localhost:8015](http://localhost:8015) |
+| [slack-bridge](https://github.com/matrix-org/matrix-appservice-slack) | Bridge that replicates conversation between Slack and Matrix | [localhost:8016](http://localhost:8016) |
 
 ## Instructions
 Create the `.env.local` file, which you can use to override environment variables defined in `.env`, if you so wish:
