@@ -34,6 +34,8 @@ docker compose up
 
 > You might notice Dimension exits with an error. This is expected, since Dimension requires [further configuration](dimension.md) to properly boot. However, if you don't plan on using Dimension, you can safely ignore this error.
 
+> You will also notice `slack-bridge` exits with an error, that it couldn't establish connection with PostgreSQL database service. Simply start it again, it will work just fine. This happens because even though slack-bridge container starts after PostgreSQL container starts, but PostgreSQL isn't ready to accept connections by the time, slack-service attempt to establish one.
+
 ## Creating users
 You can use [bin/register_new_matrix_user](bin/register_new_matrix_user) to create users from the command line:
 
