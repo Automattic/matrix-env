@@ -1,9 +1,1 @@
-id: f4f4c1f0755ec5960ae87ed25070a2283f6898776bd869ff1f9344671980fd49
-hs_token: eb73f2fc99faa947008fbe147b695e1c44112b0d9f0157b8163b65958ec6f848
-as_token: 8f6b6fb93e67ed2f0088e9889e865a8d0004bed79465af32d0ae05f317509d53
-url: http://matrix.test:5858
-sender_localpart: slackbot
-namespaces:
-  users:
-    - exclusive: true
-      regex: '@slack_.*:matrix.test'
+../../slack-bridge/config/slack-registration.yaml
