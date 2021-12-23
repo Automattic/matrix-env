@@ -93,7 +93,7 @@ services:
       - ./postgres/storage/:/var/lib/postgresql/data
       - ./postgres/run.sh:/docker-entrypoint-initdb.d/run.sh
     environment:
-      POSTGRES_PASSWORD: neo
+      POSTGRES_PASSWORD: postgres
     ports:
       - "8015:5432"
 

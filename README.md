@@ -76,7 +76,7 @@ PostgreSQL database is stored as files under `postgres/storage/`. Currently only
     - password: `admin`
 - PostgreSQL
     - username: postgres
-    - password: neo
+    - password: postgres
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
