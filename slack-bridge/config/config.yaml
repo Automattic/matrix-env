@@ -44,7 +44,7 @@ db:
   
   # A postgres connection string (unused if using nedb)
   #
-  connectionString: "postgresql://slackbridge_user:slackbridgesecret@matrix-env-postgres/slack_bridge"
+  connectionString: "postgresql://postgres:postgres@matrix-env-postgres/slack_bridge"
 
 # Optional. Use a matrix room to issue link and unlink commands to the bridge
 #
