@@ -61,6 +61,7 @@ Each service uses its own SQLite database. To access each database, simply open 
 
 ### PostgreSQL database files
 PostgreSQL database is stored as files under `postgres/storage/`. Currently only `slack-bridge` uses PostgreSQL to store data.
+You can also directly connect to the database `slack_bridge` running on port `8015` by user `postgres` and password `postgres`. Connection string: `postgresql://localhost/slack_bridge?user=postgres&password=postgres`
 
 ## Credentials
 
