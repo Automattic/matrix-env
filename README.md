@@ -76,8 +76,8 @@ You can also directly connect to the database `slack_bridge` running on port `80
     - username: `admin`
     - password: `admin`
 - PostgreSQL
-    - username: postgres
-    - password: postgres
+    - username: `postgres`
+    - password: `postgres`
 
 ## Starting from scratch
 Use the following commands to remove all containers and all data:
