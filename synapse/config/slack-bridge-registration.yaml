@@ -1,0 +1,9 @@
+id: 547eb430884eae9915e166f386efed45cc931c132b124fa8d72b58ef6af71735
+hs_token: 89b2b7c0f27641bb4c6b682729488607c84949855c2b4a57285d4212127e7c4a
+as_token: 6c07cb1a3e951a8e5702dbd487abd77a824aa18fa7ec9f73b2de2c735b1221e3
+url: http://matrix-env-slack-bridge:5858
+sender_localpart: slackbot
+namespaces:
+  users:
+    - exclusive: true
+      regex: '@slack_.*:matrix.test'
