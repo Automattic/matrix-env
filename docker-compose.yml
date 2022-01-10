@@ -7,7 +7,6 @@ services:
     container_name: matrix-env-synapse
     volumes:
       - ./synapse:/synapse
-      - ./slack-bridge/config/slack-registration.yaml:/slack-bridge-registration.yaml
     ports:
       - "8008:8008"
     env_file:
