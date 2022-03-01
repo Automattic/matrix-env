@@ -25,7 +25,7 @@ services:
 
   # client
   element:
-    image: vectorim/element-web:v1.9.2
+    image: vectorim/element-web:latest
     container_name: matrix-env-element
     volumes:
       - ./element/config.json:/app/config.json
