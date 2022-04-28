@@ -22,6 +22,7 @@ app_service_config_files:
   - "/synapse/config/slack-bridge-registration.yaml"
 
 enable_registration: true
+enable_registration_without_verification: true
 registration_shared_secret: "YTV.UDYmbtn5TTh8;1l#lNo8sXx2n8qQBE^~g1GZEioyvJd1n0"
 
 listeners:

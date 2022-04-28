@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # homeserver
   synapse:
-    image: matrixdotorg/synapse:v1.44.0
+    image: matrixdotorg/synapse:v1.57.1
     container_name: matrix-env-synapse
     volumes:
       - ./synapse:/synapse
