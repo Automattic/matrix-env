@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # homeserver
   synapse:
-    image: matrixdotorg/synapse:v1.57.1
+    image: matrixdotorg/synapse:v1.62.0
     container_name: matrix-env-synapse
     volumes:
       - ./synapse:/synapse
@@ -15,7 +15,7 @@ services:
 
   # homeserver admin UI
   synapse-admin:
-    image: awesometechnologies/synapse-admin:0.8.1
+    image: awesometechnologies/synapse-admin:0.8.5
     container_name: matrix-env-synapse-admin
     ports:
       - "8009:80"
